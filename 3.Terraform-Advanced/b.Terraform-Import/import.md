@@ -55,6 +55,34 @@ After importing resources, review your Terraform configuration to ensure that it
 
 Once you've imported the resources and updated your Terraform configuration, apply the changes using the `terraform apply` command to synchronize your infrastructure with the updated configuration.
 
+## Difference between `terraform import` command and `import` block
+
+| Feature             | `terraform import` Command                                | `import` Block                                       |
+|---------------------|------------------------------------------------------------|------------------------------------------------------|
+| **Description**     | CLI command to import existing resources into Terraform state | Declarative block in Terraform configuration to specify import actions |
+| **Syntax**          | `terraform import [options] ADDRESS ID`                    | ```hcl<br>import {<br> to = [ADDRESS]<br> id = [ID]<br>}``` |
+| **Usage**           | Used interactively from the terminal                       | Defined within configuration files, part of `terraform apply` process |
+| **Advantages**      | Simple and quick for ad-hoc imports                        | Integrated with version control, managed within codebase |
+| **Introduced In**   | Available since early versions of Terraform                | Introduced in Terraform 1.5                           |
+| **Limitations**     | Requires separate execution and might need additional `plan` and `apply` steps | Applied as part of the usual Terraform workflow, streamlining the process |
+
+## EXAMPLE
+
+```bash
+
+#Import block
+
+import {
+  to = aws_s3_bucket.bucket
+  id = "bucket-name"
+}
+
+#import command
+
+terraform import aws_s3_bucket.bucket bucket-name
+
+```
+
 ## Conclusion
 
 In summary, `terraform import` is a powerful feature of Terraform that enables you to bring existing infrastructure resources under Terraform management. By importing resources, you can achieve consistency, version control, and dependency management for your infrastructure, facilitating seamless integration into your infrastructure as code workflows.
