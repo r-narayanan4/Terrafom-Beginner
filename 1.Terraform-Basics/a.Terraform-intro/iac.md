@@ -68,4 +68,4 @@ HCL encourages modularity by supporting the use of modules. Modules are reusable
 
 ## Conclusion
 
-Terraform HCL is a powerful and flexible language for defining infrastructure configurations in Terraform. Its declarative syntax, support for idempotency, and modularity make it well-suited for managing infrastructure as code across various cloud platforms and environments.
+Terraform HCL is a powerful and flexible language for defining infrastructure configurations in Terraform. Its declarative syntax, support for idempotency, and modularity make it well-suited for managing infrastructure as code across various cloud platforms and environments. 
